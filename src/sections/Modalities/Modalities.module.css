@@ -1,0 +1,138 @@
+.modalities {
+  background-color: var(--color-black-deep);
+  padding: var(--spacing-3xl) 0;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--spacing-3xl);
+}
+
+.header h2 {
+  color: var(--color-white);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--spacing-xl);
+}
+
+.card {
+  background-color: var(--color-black);
+  border: 1px solid var(--color-gray-dark);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  border-color: var(--color-red);
+  box-shadow: 0 8px 32px rgba(215, 25, 32, 0.15);
+  transform: translateY(-4px);
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+
+.imageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.85) contrast(1.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover .imageWrapper img {
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, transparent 0%, rgba(5, 5, 5, 0.8) 100%);
+  pointer-events: none;
+}
+
+.cardContent {
+  padding: var(--spacing-xl);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardContent h3 {
+  color: var(--color-white);
+  margin-bottom: var(--spacing-md);
+  font-size: 1.25rem;
+}
+
+.cardContent p {
+  color: var(--color-gray);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 0;
+  flex: 1;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+  }
+
+  .imageWrapper {
+    height: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .modalities {
+    padding: var(--spacing-2xl) 0;
+  }
+
+  .header h2 {
+    font-size: 2rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .imageWrapper {
+    height: 200px;
+  }
+
+  .cardContent {
+    padding: var(--spacing-lg);
+  }
+
+  .cardContent h3 {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .imageWrapper {
+    height: 180px;
+  }
+
+  .cardContent {
+    padding: var(--spacing-md);
+  }
+}

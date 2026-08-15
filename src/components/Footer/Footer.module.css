@@ -1,0 +1,115 @@
+.footer {
+  background-color: var(--color-black-deep);
+  border-top: 1px solid var(--color-gray-dark);
+  padding: var(--spacing-3xl) 0 var(--spacing-xl);
+  margin-top: var(--spacing-4xl);
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-2xl);
+  margin-bottom: var(--spacing-2xl);
+  padding-bottom: var(--spacing-2xl);
+  border-bottom: 1px solid var(--color-gray-dark);
+}
+
+.section h4 {
+  color: var(--color-white);
+  font-size: 1rem;
+  margin-bottom: var(--spacing-lg);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.section p {
+  color: var(--color-gray);
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.section ul {
+  list-style: none;
+}
+
+.section ul li {
+  margin-bottom: var(--spacing-md);
+}
+
+.section ul button {
+  color: var(--color-gray);
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+  text-align: left;
+}
+
+.section ul button:hover {
+  color: var(--color-red);
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  color: var(--color-gray);
+  font-size: 0.9rem;
+}
+
+.socials {
+  display: flex;
+  gap: var(--spacing-lg);
+}
+
+.socials a {
+  color: var(--color-gray);
+  transition: color 0.3s ease;
+}
+
+.socials a:hover {
+  color: var(--color-red);
+}
+
+.bottom {
+  text-align: center;
+  padding-top: var(--spacing-lg);
+}
+
+.bottom p {
+  color: var(--color-gray);
+  font-size: 0.85rem;
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+  }
+
+  .section h4 {
+    font-size: 0.9rem;
+  }
+
+  .contactItem {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .footer {
+    padding: var(--spacing-2xl) 0 var(--spacing-lg);
+    margin-top: var(--spacing-2xl);
+  }
+}

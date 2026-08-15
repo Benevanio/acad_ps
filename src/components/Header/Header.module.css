@@ -1,0 +1,254 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--color-black-deep);
+  border-bottom: 1px solid var(--color-gray-dark);
+  padding: var(--spacing-md) 0;
+  transition: all 0.3s ease;
+}
+
+.header.scrolled {
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+}
+
+.container {
+  max-width: 1280px;
+  height: 72px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-xl);
+}
+
+.logoButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.logo {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  display: block;
+  animation: logoEntrance 0.8s ease-out both;
+}
+
+.logoButton:hover .logo {
+  transform: scale(1.04);
+  transition: transform 0.3s ease;
+}
+
+@keyframes logoEntrance {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  70% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.nav {
+  display: flex;
+  gap: var(--spacing-xl);
+  flex: 1;
+}
+
+.navLink {
+  color: var(--color-gray);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.navLink:hover {
+  color: var(--color-red);
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-red);
+  transition: width 0.3s ease;
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+.ctaButton {
+  background-color: var(--color-red);
+  color: var(--color-white);
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(215, 25, 32, 0.3);
+}
+
+.hamburger {
+  display: none;
+  color: var(--color-white);
+  padding: var(--spacing-sm);
+  border: 0;
+  background: transparent;
+}
+
+.hamburger:hover {
+  color: var(--color-red);
+}
+
+@media (max-width: 768px) {
+  .header {
+    height: 64px;
+    padding: 0;
+  }
+
+  .container {
+    height: 64px;
+    padding: 0 16px;
+    gap: 0;
+  }
+
+  .logoButton {
+    width: 50px;
+    height: 50px;
+  }
+
+  .logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .nav {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--color-black-deep);
+    border-top: 1px solid var(--color-gray-dark);
+    border-bottom: 1px solid var(--color-gray-dark);
+
+    padding: 0 20px;
+    gap: 0;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    pointer-events: none;
+
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease,
+      visibility 0.25s ease;
+  }
+
+  .nav.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .navLink {
+    width: 100%;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--color-gray-dark);
+    font-size: 0.95rem;
+    text-align: left;
+  }
+
+  .navLink::after {
+    display: none;
+  }
+
+  .ctaButton {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+    padding: 0;
+
+    color: var(--color-white);
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .hamburger svg {
+    width: 27px;
+    height: 27px;
+  }
+}
+
+@media (max-width: 380px) {
+  .container {
+    padding: 0 12px;
+  }
+
+  .logoButton {
+    width: 46px;
+    height: 46px;
+  }
+
+  .logo {
+    width: 46px;
+    height: 46px;
+  }
+
+  .hamburger {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo {
+    animation: none;
+  }
+
+  .logoButton:hover .logo {
+    transform: none;
+  }
+}
