@@ -43,6 +43,9 @@
   object-fit: contain;
   display: block;
   animation: logoEntrance 0.8s ease-out both;
+  border-radius: 50%;
+  border: 3px solid var(--color-red);
+  padding: 4px;
 }
 
 .logoButton:hover .logo {
